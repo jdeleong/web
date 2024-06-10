@@ -49,12 +49,15 @@
             color: #333;
         }
         .search-container {
-            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin-bottom: 20px;
         }
         .search-input {
             padding: 8px;
-            width: 60%;
+            flex: 1;
+            max-width: 60%;
             border: 1px solid #ddd;
             border-radius: 5px;
             font-size: 16px;
@@ -67,6 +70,7 @@
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
+            margin-left: 10px;
         }
         .lightbox {
             display: none;
@@ -86,6 +90,20 @@
         }
         .lightbox.show {
             display: flex;
+        }
+        @media (max-width: 768px) {
+            .especia {
+                width: 48%; /* Ajusta el ancho para que quepan dos elementos por fila */
+                margin-bottom: 10px;
+            }
+        }
+        @media (max-width: 480px) {
+            .especia {
+                width: 100%; /* Ajusta el ancho para que quepa un elemento por fila en pantallas más pequeñas */
+            }
+            .search-input {
+                max-width: 100%;
+            }
         }
     </style>
 </head>
@@ -233,4 +251,3 @@
     
 </body>
 </html>
-
