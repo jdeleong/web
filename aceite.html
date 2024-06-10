@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aceites</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #004d99;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .aceites-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .aceite {
+            width: 300px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .aceite img {
+            max-width: 100%;
+            height: auto;
+            max-height: 200px; /* Máximo alto de la imagen */
+            object-fit: cover; /* Evita que las imágenes se distorsionen */
+        }
+        .aceite p {
+            margin: 10px;
+            font-size: 1.2em;
+            color: #333;
+        }
+    
+        .search-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .search-input {
+            padding: 8px;
+            width: 60%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .search-button {
+            padding: 8px 20px;
+            background-color: #0066cc;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>MONTANO DISTRIBUIDORA, S.A.</h1>
+    </header>
+    <div class="container">
+        <div class="search-container">
+            <input type="text" id="searchInput" class="search-input" placeholder="Buscar aceites...">
+            <button onclick="search()" class="search-button">Buscar</button>
+        </div>
+        <p>CATEGORIA - ACEITES</p>
+        <div class="aceites-container">
+            <div class="aceite" id="aceite1">
+                <img src="aceitecaneca.jpg" alt="Nombre del Aceite 1">
+                <p>ACEITE IDEAL CANECA</p>
+            </div>
+            <div class="aceite" id="aceite2">
+                <img src="ACEITE3.20.jpg" alt="Nombre del Aceite 2">
+                <p>ACEITE IDEAL 3.8 LITROS</p>
+            </div>
+            <div class="aceite" id="aceite3">
+                <img src="aceite1.jpeg" alt="Nombre del Aceite 3">
+                <p>ACEITE DE ORUJO ALIANZA 5 LITROS</p>
+            </div>
+            <div class="aceite" id="aceite4">
+                <img src="ACEITE2.jpeg" alt="Nombre del Aceite 4">
+                <p>ACEITE DE OLIVA EXTRAVIRGEN 5 LITROS</p>
+            </div>
+            <div class="aceite" id="aceite4">
+                <img src="GIRASOL.jpg" alt="Nombre del Aceite 4">
+                <p>ACEITE DE GIRASOL  5 LITROS</p>
+            </div>
+            <div class="aceite" id="aceite4">
+                <img src="ACEITEAJONJOLI.jpg" alt="Nombre del Aceite 4">
+                <p>ACEITE DE GIRASOL  5 LITROS</p>
+            </div>
+            <div class="aceite" id="aceite4">
+                <img src="ACEITEAJONJOLIPEQ.jpg" alt="Nombre del Aceite 4">
+                <p>ACEITE DE GIRASOL  5 LITROS</p>
+            </div>
+            <div class="aceite" id="aceite4">
+                <img src="aceitedeajonjoligalon.jpeg" alt="Nombre del Aceite 4">
+                <p>ACEITE DE GIRASOL  5 LITROS</p>
+            </div>
+            <div class="aceite" id="aceite4">
+                <img src="aceitedeajonjolipeque.jpeg" alt="Nombre del Aceite 4">
+                <p>ACEITE DE GIRASOL  5 LITROS</p>
+            </div>
+            <div class="aceite" id="aceite4">
+                <img src="aceitecanche.jpeg" alt="Nombre del Aceite 4">
+                <p>ACEITE DE GIRASOL  5 LITROS</p>
+            </div>
+            <div class="aceite" id="aceite4">
+                <img src="aceitecanchepeq.jpeg" alt="Nombre del Aceite 4">
+                <p>ACEITE DE GIRASOL  5 LITROS</p>
+            </div>
+            <div class="aceite" id="aceite4">
+                <img src="aceite3l.jpeg" alt="Nombre del Aceite 4">
+                <p>ACEITE DE GIRASOL  5 LITROS</p>
+            </div>
+            <div class="aceite" id="aceite4">
+                <img src="bvedal.jpeg" alt="Nombre del Aceite 4">
+                <p>ACEITE DE GIRASOL  5 LITROS</p>
+            </div>
+            <!-- Agrega más aceites aquí -->
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Productos de Consumo Diario. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function search() {
+            var input = document.getElementById("searchInput").value.toUpperCase();
+            var aceites = document.getElementsByClassName("aceite");
+            for (var i = 0; i < aceites.length; i++) {
+                var texto = aceites[i].getElementsByTagName("p")[0];
+                if (texto.innerHTML.toUpperCase().indexOf(input) > -1) {
+                    aceites[i].style.display = "";
+                } else {
+                    aceites[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
