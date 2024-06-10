@@ -23,10 +23,10 @@
         nav {
             background-color: #0066cc;
             overflow: hidden;
+            text-align: center;
         }
         nav a {
-            float: left;
-            display: block;
+            display: inline-block;
             color: #fff;
             text-align: center;
             padding: 14px 20px;
@@ -36,6 +36,10 @@
         nav a:hover {
             background-color: #005bb5;
             color: #fff;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
         }
         .categories {
             display: flex;
@@ -95,12 +99,25 @@
             font-size: 16px;
             text-decoration: none;
             margin-top: 20px;
-            display: inline-block;
             transition: background-color 0.3s, transform 0.3s;
         }
         .back-button:hover {
             background-color: #005bb5;
             transform: scale(1.05);
+        }
+        .back-button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        @media (max-width: 768px) {
+            .category {
+                width: 45%;
+            }
+        }
+        @media (max-width: 480px) {
+            .category {
+                width: 90%;
+            }
         }
     </style>
 </head>
@@ -114,7 +131,7 @@
         <a href="contacto.html">Contacto</a>
         <a href="quienes_somos.html">Quiénes Somos</a>
     </nav>
-    <h1 style="text-align: center; margin-top: 20px;">Categorías de los Productos</h1>
+    <h1>Categorías de los Productos</h1>
     <div class="categories">
         <a href="aceite.html" class="category">
             <img src="portadaaceite.jpg" alt="Aceites">
@@ -150,7 +167,7 @@
         </a>
         <!-- Agrega más categorías aquí -->
     </div>
-    <div style="text-align: center;">
+    <div class="back-button-container">
         <a href="index.html" class="back-button">Regresar a la página principal</a>
     </div>
     <footer>
