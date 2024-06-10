@@ -49,12 +49,13 @@
             color: #333;
         }
         .search-container {
-            text-align: center;
+            display: flex;
+            align-items: center;
             margin-bottom: 20px;
         }
         .search-input {
+            flex: 1;
             padding: 8px;
-            width: 60%;
             border: 1px solid #ddd;
             border-radius: 5px;
             font-size: 16px;
@@ -67,6 +68,7 @@
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
+            margin-left: 10px;
         }
         .lightbox {
             display: none;
@@ -91,9 +93,6 @@
             .especia {
                 width: 48%; /* Ajusta el ancho para que quepan dos elementos por fila */
                 margin-bottom: 10px;
-            }
-            .search-input {
-                width: 80%;
             }
         }
     </style>
