@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mondisa</title>
     <style>
+        /* Estilos comunes para todas las pantallas */
         body {
             font-family: Arial, sans-serif;
             background: linear-gradient(to right, #6a11cb, #2575fc);
@@ -20,13 +21,13 @@
             position: relative;
         }
         header img {
-            width: 70px; /* Ajusta el tamaño aquí */
+            width: 70px;
             vertical-align: middle;
             display: inline-block;
         }
         header h1 {
             display: inline-block;
-            font-size: 1.5em; /* Ajusta el tamaño de la fuente aquí */
+            font-size: 1.5em;
             margin-left: 10px;
             vertical-align: middle;
         }
@@ -50,7 +51,7 @@
         .hero {
             position: relative;
             width: 100%;
-            height: 600px; /* Cambiado a 600px */
+            height: 600px;
             overflow: hidden;
             color: white;
             text-align: center;
@@ -188,17 +189,21 @@
         footer a:hover {
             text-decoration: underline;
         }
+
+        /* Consultas de medios para pantallas medianas */
         @media (max-width: 768px) {
             header img {
-                width: 60px; /* Ajusta el tamaño aquí */
+                width: 60px;
             }
             header h1 {
-                font-size: 1.2em; /* Ajusta el tamaño de la fuente aquí */
+                font-size: 1.2em;
             }
             .hero {
-                height: 500px; /* Cambiado a 500px para pantallas medianas */
+                height: 500px;
             }
             .hero h1 {
+                font-size: 1
+                .hero h1 {
                 font-size: 1.5em;
             }
             .hero p {
@@ -213,15 +218,17 @@
                 margin: 10px 2%;
             }
         }
+
+        /* Consultas de medios para pantallas pequeñas */
         @media (max-width: 480px) {
             header img {
-                width: 50px; /* Ajusta el tamaño aquí */
+                width: 50px;
             }
             header h1 {
-                font-size: 1em; /* Ajusta el tamaño de la fuente aquí */
+                font-size: 1em;
             }
             .hero {
-                height: 400px; /* Cambiado a 400px para pantallas pequeñas */
+                height: 400px;
             }
             .hero h1 {
                 font-size: 1.2em;
@@ -235,6 +242,33 @@
             }
             .services .service, .products .product, .special-offers .offer, .blog .post {
                 width: 90%;
+                margin: 10px auto;
+            }
+        }
+
+        /* Consultas de medios para pantallas extra pequeñas */
+        @media (max-width: 360px) {
+            header img {
+                width: 40px;
+            }
+            header h1 {
+                font-size: 0.9em;
+            }
+            .hero {
+                height: 300px;
+            }
+            .hero h1 {
+                font-size: 1em;
+            }
+            .hero p {
+                font-size: 0.7em;
+            }
+            .hero button {
+                font-size: 0.6em;
+                padding: 5px 10px;
+            }
+            .services .service, .products .product, .special-offers .offer, .blog .post {
+                width: 95%;
                 margin: 10px auto;
             }
         }
@@ -307,7 +341,7 @@
         <div class="product">
             <img src="mieldeabeja.jpeg" alt="Producto 3">
             <h3>Miel de Abeja</h3>
-            <p>Miel 100% de abaje, empaque de plastico </p>
+            <p>Miel 100% de abeja, empaque de plástico</p>
         </div>
     </section>
 
