@@ -266,11 +266,25 @@
 
     /* Consultas de medios para pantallas pequeñas */
     @media (max-width: 480px) {
+        header {
+            text-align: center;
+        }
         header img {
             width: 50px;
+            display: block;
+            margin: 0 auto;
         }
         header h1 {
             font-size: 1em;
+            margin-left: 0;
+        }
+        .contact-info {
+            position: static;
+            text-align: center;
+        }
+        nav a {
+            display: block;
+            padding: 10px 0;
         }
         .hero {
             height: 400px;
