@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Especias</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #004d99;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .especias-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .especia {
+            width: 300px;
+            margin-bottom: 20px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .especia img {
+            max-width: 100%;
+            height: auto;
+            max-height: 300px; /* Máximo alto de la imagen */
+            object-fit: cover; /* Evita que las imágenes se distorsionen */
+            transition: transform 0.3s;
+        }
+        .especia p {
+            margin: 10px;
+            font-size: 1.2em;
+            color: #333;
+        }
+        .search-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .search-input {
+            padding: 8px;
+            width: 60%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .search-button {
+            padding: 8px 20px;
+            background-color: #0066cc;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+        .lightbox.show {
+            display: flex;
+        }
+        .no-result {
+            display: none;
+            color: red;
+            font-size: 1.2em;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>MONTANO DISTRIBUIDORA, S.A.</h1>
+    </header>
+    <div class="container">
+        <div class="search-container">
+            <input type="text" id="searchInput" class="search-input" placeholder="Buscar especias...">
+            <button onclick="search()" class="search-button">Buscar</button>
+        </div>
+        <p>CATEGORIA - ESPECIAS</p>
+        <div class="especias-container">
+            <div class="especia" data-id="img1">
+                <img src="especies/badiaajoenpolvo.jpeg" alt="Nombre de la Especia 1">
+                <p>AJO EN POLVO BADIA</p>
+            </div>
+            <div class="especia" data-id="img2">
+                <img src="especies/badiabarbacoa.jpeg" alt="Nombre de la Especia 2">
+                <p>BARBACOA EN POLVO LIBRA</p>
+            </div>
+            <div class="especia" data-id="img3">
+                <img src="especies/badiacanela.jpeg" alt="Nombre de la Especia 3">
+                <p>CANELA EN POLVO BADIA</p>
+            </div>
+            <div class="especia" data-id="img4">
+                <img src="especies/badiacomino.jpeg" alt="Nombre de la Especia 4">
+                <p>COMINO EN POLVO BADIA</p>
+            </div>
+            <div class="especia" data-id="img5">
+                <img src="especies/badiacominomolido.jpeg" alt="Nombre de la Especia 5">
+                <p>COMINO EN POLVO LIBRA</p>
+            </div>
+            <div class="especia" data-id="img6">
+                <img src="especies/badiacurryyy.jpeg" alt="Nombre de la Especia 6">
+                <p>CURRY DE LA INDIA LIBRA</p>
+            </div>
+            <div class="especia" data-id="img7">
+                <img src="especies/badiacurry.jpeg" alt="Nombre de la Especia 7">
+                <p>CURRY DE LA INDIA BADIA</p>
+            </div>
+            <div class="especia" data-id="img8">
+                <img src="especies/badiadulce.jpeg" alt="Nombre de la Especia 8">
+                <p>PIMENTON DULCE LIBRA</p>
+            </div>
+            <div class="especia" data-id="img9">
+                <img src="especies/badiajengi.jpeg" alt="Nombre de la Especia 9">
+                <p>JENGIBRE MOLIDO BADIA</p>
+            </div>
+            <div class="especia" data-id="img10">
+                <img src="especies/badiapaprika.jpeg" alt="Nombre de la Especia 10">
+                <p>PAPRIKA LIBRA</p>
+            </div>
+            <div class="especia" data-id="img11">
+                <img src="especies/badiapepitoria.jpeg" alt="Nombre de la Especia 11">
+                <p>PEPITORIA MOLIDA LIBRA</p>
+            </div>
+            <div class="especia" data-id="img12">
+                <img src="especies/badiapimienta.jpeg" alt="Nombre de la Especia 12">
+                <p>PIMIENTA MOLIDA BADIA</p>
+            </div>
+            <div class="especia" data-id="img13">
+                <img src="especies/badiasalgranu.jpeg" alt="Nombre de la Especia 13">
+                <p>CEBOLLA GRANULADA BADIA</p>
+            </div>
+            <div class="especia" data-id="img14">
+                <img src="especies/badiasazon.jpeg" alt="Nombre de la Especia 14">
+                <p>SAZON COMPLETA BADIA 1.7 LIBRAS</p>
+            </div>
+            <div class="especia" data-id="img15">
+                <img src="especies/badiapollo.jpeg" alt="Nombre de la Especia 15">
+                <p>CONSOME DE POLLO LIBRA</p>
+            </div>
+            <div class="especia" data-id="img16">
+                <img src="especies/badieares.jpeg" alt="Nombre de la Especia 16">
+                <p>CONSOME DE RES LIBRA</p>
+            </div>
+            <div class="especia" data-id="img17">
+                <img src="especies/badiasaborin.jpeg" alt="Nombre de la Especia 17">
+                <p>SABORIN LIBRA</p>
+            </div>
+            <!-- Agrega más especias aquí -->
+        </div>
+    </div>
+
+    <!-- Lightbox containers -->
+    <div id="img1" class="lightbox">
+        <img src="especies/badiaajoenpolvo.jpeg" alt="Nombre de la Especia 1">
+    </div>
+    <div id="img2" class="lightbox">
+        <img src="especies/badiabarbacoa.jpeg" alt="Nombre de la Especia 2">
+    </div>
+    <div id="img3" class="lightbox">
+        <img src="especies/badiacanela.jpeg" alt="Nombre de la Especia 3">
+    </div>
+    <div id="img4" class="lightbox">
+        <img src="especies/badiacomino.jpeg" alt="Nombre de la Especia 4">
+    </div>
+    <div id="img5" class="lightbox">
+        <img src="especies/badiacominomolido.jpeg" alt="Nombre de la Especia 5">
+    </div>
+    <div id="img6" class="lightbox">
+        <img src="especies/badiacurryyy.jpeg" alt="Nombre de la Especia 6">
+    </div>
+    <div id="img7" class="lightbox">
+        <img src="especies/badiacurry.jpeg" alt="Nombre de la Especia 7">
+    </div>
+    <div id="img8" class="lightbox">
+        <img src="especies/badiadulce.jpeg" alt="Nombre de la Especia 8">
+    </div>
+    <div id="img9" class="lightbox">
+        <img src="especies/badiajengi.jpeg" alt="Nombre de la Especia 9">
+    </div>
+    <div id="img10" class="lightbox">
+        <img src="especies/badiapaprika.jpeg" alt="Nombre de la Especia 10">
+    </div>
+    <div id="img11" class="lightbox">
+        <img src="especies/badiapepitoria.jpeg" alt="Nombre de la Especia 11">
+    </div>
+    <div id="img12" class="lightbox">
+        <img src="especies/badiapimienta.jpeg" alt="Nombre de la Especia 12">
+    </div>
+    <div id="img13" class="lightbox">
+        <img src="especies/badiasalgranu.jpeg" alt="Nombre de la Especia 13">
+    </div>
+    <div id="img14" class="lightbox">
+        <img src="especies/badiasazon.jpeg" alt="Nombre de la Especia 14">
+    </div>
+    <div id="img15" class="lightbox">
+        <img src="especies/badiapollo.jpeg" alt="Nombre de la Especia 15">
+    </div>
+    <div id="img16" class="lightbox">
+        <img src="especies/badieares.jpeg" alt="Nombre de la Especia 16">
+    </div>
+    <div id="img17" class="lightbox">
+        <img src="especies/badiasaborin.jpeg" alt="Nombre de la Especia 17">
+    </div>
+
+    <div class="no-result" id="noResult">No existe este producto</div>
+    <footer>
+        <p>&copy; 2024 Productos de Consumo Diario. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+            // Manejar la búsqueda al presionar Enter
+            document.getElementById("searchInput").addEventListener("keyup", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault(); // Evitar el comportamiento por defecto del formulario
+                search();
+            }
+        });
+
+        function search() {
+            var input = document.getElementById("searchInput").value.toUpperCase();
+            var especias = document.getElementsByClassName("especia");
+            var noResult = document.getElementById("noResult");
+            var encontrados = false;
+            for (var i = 0; i < especias.length; i++) {
+                var texto = especias[i].getElementsByTagName("p")[0];
+                if (texto.innerHTML.toUpperCase().indexOf(input) > -1) {
+                    especias[i].style.display = "";
+                    encontrados = true;
+                } else {
+                    especias[i].style.display = "none";
+                }
+            }
+            if (!encontrados) {
+                noResult.style.display = "block";
+            } else {
+                noResult.style.display = "none";
+            }
+        }
+
+        // Manejar la apertura y cierre del lightbox
+        document.querySelectorAll('.especia').forEach(item => {
+            item.addEventListener('click', event => {
+                var id = item.getAttribute('data-id');
+                document.getElementById(id).classList.add('show');
+            });
+        });
+
+        document.querySelectorAll('.lightbox').forEach(item => {
+            item.addEventListener('click', event => {
+                item.classList.remove('show');
+            });
+        });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TÉS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #004d99;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .especias-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .especia {
+            width: 300px;
+            margin-bottom: 20px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .especia img {
+            max-width: 100%;
+            height: auto;
+            max-height: 300px; /* Máximo alto de la imagen */
+            object-fit: cover; /* Evita que las imágenes se distorsionen */
+            transition: transform 0.3s;
+        }
+        .especia p {
+            margin: 10px;
+            font-size: 1.2em;
+            color: #333;
+        }
+        .search-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .search-input {
+            padding: 8px;
+            width: 60%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .search-button {
+            padding: 8px 20px;
+            background-color: #0066cc;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .pagination {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .pagination button {
+            padding: 10px 15px;
+            margin: 0 5px;
+            border: 1px solid #ddd;
+            background-color: #f4f4f4;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .pagination button.active {
+            background-color: #0066cc;
+            color: #fff;
+        }
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+        .lightbox.show {
+            display: flex;
+        }
+        .no-result {
+            display: none;
+            color: red;
+            font-size: 1.2em;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>MONTANO DISTRIBUIDORA, S.A.</h1>
+    </header>
+    <div class="container">
+        <div class="search-container">
+            <input type="text" id="searchInput" class="search-input" placeholder="Buscar té...">
+            <button onclick="search()" class="search-button">Buscar</button>
+        </div>
+        <p>CATEGORIA - TÉS</p>
+        <div class="especias-container" id="especiasContainer">
+            <!-- Especias se agregarán aquí dinámicamente -->
+            
+        </div>
+        <div class="pagination" id="pagination"></div>
+        
+    </div>
+    
+
+    <!-- Lightbox containers -->
+    <div id="img1" class="lightbox" onclick="closeLightbox('img1')">
+        <img src="tes/te1.jpeg" alt="Nombre de la Especia 1">
+    </div>
+    <div id="img2" class="lightbox" onclick="closeLightbox('img2')">
+        <img src="tes/te2.jpeg" alt="Nombre de la Especia 2">
+    </div>
+    <div id="img3" class="lightbox" onclick="closeLightbox('img3')">
+        <img src="tes/t3.jpeg" alt="Nombre de la Especia 3">
+    </div>
+    <div id="img4" class="lightbox" onclick="closeLightbox('img4')">
+        <img src="tes/te4.jpeg" alt="Nombre de la Especia 4">
+    </div>
+    <div id="img5" class="lightbox" onclick="closeLightbox('img5')">
+        <img src="tes/te5.jpeg" alt="Nombre de la Especia 5">
+    </div>
+    <div id="img6" class="lightbox" onclick="closeLightbox('img6')">
+        <img src="tes/te6.jpeg" alt="Nombre de la Especia 6">
+    </div>
+    <div id="img7" class="lightbox" onclick="closeLightbox('img7')">
+        <img src="tes/te7.jpeg" alt="Nombre de la Especia 7">
+    </div>
+    <div id="img8" class="lightbox" onclick="closeLightbox('img8')">
+        <img src="tes/te8.jpeg" alt="Nombre de la Especia 8">
+    </div>
+    <div id="img9" class="lightbox" onclick="closeLightbox('img9')">
+        <img src="tes/te9.jpeg" alt="Nombre de la Especia 8">
+    </div>
+
+    <div id="img10" class="lightbox" onclick="closeLightbox('img10')">
+        <img src="tes/te10.jpeg" alt="Nombre de la Especia 8">
+    </div>
+
+    <div id="img11" class="lightbox" onclick="closeLightbox('img11')">
+        <img src="tes/te11.jpeg" alt="Nombre de la Especia 8">
+    </div>
+
+    <div id="img12" class="lightbox" onclick="closeLightbox('img12')">
+        <img src="tes/te12.jpeg" alt="Nombre de la Especia 8">
+    </div>
+    <div id="img13" class="lightbox" onclick="closeLightbox('img13')">
+        <img src="tes/te13.jpeg" alt="Nombre de la Especia 8">
+    </div>
+    <div id="img14" class="lightbox" onclick="closeLightbox('img14')">
+        <img src="tes/te14.jpeg" alt="Nombre de la Especia 8">
+    </div>
+    <div id="img15" class="lightbox" onclick="closeLightbox('img15')">
+        <img src="tes/te15.jpeg" alt="Nombre de la Especia 8">
+    </div>
+    <div id="img16" class="lightbox" onclick="closeLightbox('img16')">
+        <img src="tes/te16.jpeg" alt="Nombre de la Especia 8">
+    </div>
+    <div class="no-result" id="noResult">No existe este producto</div>
+    <footer>
+        <p>&copy; 2024 Productos de Consumo Diario. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        const especias = [
+            { id: "img1", src: "tes/te1.jpeg", name: "CHILE CHIPOTLE CLEMENTE" },
+            { id: "img2", src: "tes/te2.JPEG", name: "GARBANZO 800 GRAMOS" },
+            { id: "img3", src: "tes/t3.jpeg", name: "PASTA DE TOMATE SW GALON" },
+            { id: "img4", src: "tes/te4.jpeg", name: "TOMATE TRITURADO SW GALON" },
+            { id: "img5", src: "tes/te5.jpeg", name: "TOMATE ENTEROS PELADOS SW GALON" },
+            { id: "img6", src: "tes/te6.jpeg", name: "ACEITUNA RODAJADA NEGRA ROLAND 6.34OZ" },
+            { id: "img7", src: "tes/te7.jpeg", name: "CORAZON ALCACHOFA LATA" },
+            { id: "img8", src: "tes/te8.jpeg", name: "ANCHOAS 12 ONZAS" },
+            { id: "img9", src: "tes/te9.jpeg", name: "ANCHOAS 2 ONZAS" },
+            { id: "img10", src: "tes/te10.jpeg", name: "CHAMPIONES DELICIAS GOURMET GALON" },
+            { id: "img11", src: "tes/te11.jpeg", name: "HIGOS EN ALMIBAR 16.20 ONZAS" },
+            { id: "img12", src: "tes/te12.jpeg", name: "ESCARGOT 800 GRAMOS" },
+            { id: "img13", src: "tes/te13.jpeg", name: "FRIJOL DE OLLA DUCAL LATA" },
+            { id: "img14", src: "tes/te14.jpeg", name: "FRIJOL DE OLLA DUCAL LATA" },
+            { id: "img15", src: "tes/te15.jpeg", name: "FRIJOL DE OLLA DUCAL LATA" },
+            { id: "img16", src: "tes/te16.jpeg", name: "FRIJOL DE OLLA DUCAL LATA" },
+    
+            // Agrega más especias aquí
+        ];
+
+        const itemsPerPage = 8;
+        let currentPage = 1;
+
+        function displayEspecias(page) {
+            const container = document.getElementById("especiasContainer");
+            container.innerHTML = "";
+            const start = (page - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+            const paginatedEspecias = especias.slice(start, end);
+
+            paginatedEspecias.forEach(especia => {
+                const especiaDiv = document.createElement("div");
+                especiaDiv.className = "especia";
+                especiaDiv.dataset.id = especia.id;
+                especiaDiv.innerHTML = `
+                    <img src="${especia.src}" alt="${especia.name}">
+                    <p>${especia.name}</p>
+                `;
+                container.appendChild(especiaDiv);
+            });
+
+            document.querySelectorAll('.especia').forEach(item => {
+                item.addEventListener('click', event => {
+                    var id = item.getAttribute('data-id');
+                    document.getElementById(id).classList.add('show');
+                });
+            });
+        }
+
+        function setupPagination() {
+            const paginationContainer = document.getElementById("pagination");
+            paginationContainer.innerHTML = "";
+            const pageCount = Math.ceil(especias.length / itemsPerPage);
+
+            for (let i = 1; i <= pageCount; i++) {
+                const button = document.createElement("button");
+                button.innerText = i;
+                button.className = i === currentPage ? "active" : "";
+                button.addEventListener("click", () => {
+                    currentPage = i;
+                    displayEspecias(currentPage);
+                    document.querySelector(".pagination button.active").classList.remove("active");
+                    button.classList.add("active");
+                });
+                paginationContainer.appendChild(button);
+            }
+        }
+
+        function search() {
+            var input = document.getElementById("searchInput").value.toUpperCase();
+            var noResult = document.getElementById("noResult");
+            const filteredEspecias = especias.filter(especia => especia.name.toUpperCase().includes(input));
+            const container = document.getElementById("especiasContainer");
+            container.innerHTML = "";
+
+            if (filteredEspecias.length > 0) {
+                noResult.style.display = "none";
+                filteredEspecias.forEach(especia => {
+                    const especiaDiv = document.createElement("div");
+                    especiaDiv.className = "especia";
+                    especiaDiv.dataset.id = especia.id;
+                    especiaDiv.innerHTML = `
+                        <img src="${especia.src}" alt="${especia.name}">
+                        <p>${especia.name}</p>
+                    `;
+                    container.appendChild(especiaDiv);
+                });
+
+                document.querySelectorAll('.especia').forEach(item => {
+                    item.addEventListener('click', event => {
+                        var id = item.getAttribute('data-id');
+                        document.getElementById(id).classList.add('show');
+                    });
+                });
+
+            } else {
+                noResult.style.display = "block";
+            }
+        }
+
+        function closeLightbox(id) {
+            document.getElementById(id).classList.remove('show');
+        }
+
+        // Manejar la búsqueda al presionar Enter
+        document.getElementById("searchInput").addEventListener("keyup", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault(); // Evitar el comportamiento por defecto del formulario
+                search();
+            }
+        });
+        
+
+        // Inicialización
+        displayEspecias(currentPage);
+        setupPagination();
+    </script>
+</body>
+</html>
