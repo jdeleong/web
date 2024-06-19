@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Granos</title>
+    <title>SEMILLAS</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -68,6 +68,22 @@
             cursor: pointer;
             font-size: 16px;
         }
+        .pagination {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .pagination button {
+            padding: 10px 15px;
+            margin: 0 5px;
+            border: 1px solid #ddd;
+            background-color: #f4f4f4;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .pagination button.active {
+            background-color: #0066cc;
+            color: #fff;
+        }
         .lightbox {
             display: none;
             position: fixed;
@@ -87,6 +103,12 @@
         .lightbox.show {
             display: flex;
         }
+        .no-result {
+            display: none;
+            color: red;
+            font-size: 1.2em;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -95,168 +117,167 @@
     </header>
     <div class="container">
         <div class="search-container">
-            <input type="text" id="searchInput" class="search-input" placeholder="Buscar especias...">
+            <input type="text" id="searchInput" class="search-input" placeholder="Buscar granos y semillas...">
             <button onclick="search()" class="search-button">Buscar</button>
         </div>
-        <p>CATEGORIA - ESPECIAS</p>
-        <div class="especias-container">
-            <div class="especia" data-id="img1">
-                <img src="semillas/badiaajoenpolvo.jpeg" alt="Nombre de la Especia 1">
-                <p>Especia glass libra</p>
-            </div>
-            <div class="especia" data-id="img2">
-                <img src="semillas/badiabarbacoa.jpeg" alt="Nombre de la Especia 2">
-                <p>Especia Blanca quintal</p>
-            </div>
-            <div class="especia" data-id="img3">
-                <img src="semillas/badiacanela.jpeg" alt="Nombre de la Especia 3">
-                <p>Especia de Caña arroba</p>
-            </div>
-            <div class="especia" data-id="img4">
-                <img src="semillas/badiacomino.jpeg" alt="Nombre de la Especia 4">
-                <p>Especia blanca bolsa de 5 libras</p>
-            </div>
-            <div class="especia" data-id="img5">
-                <img src="semillas/badiacominomolido.jpeg" alt="Nombre de la Especia 5">
-                <p>Miel de abeja Galon</p>
-            </div>
-            <div class="especia" data-id="img6">
-                <img src="semillas/badiacurryyy.jpeg" alt="Nombre de la Especia 6">
-                <p>Miel de abeja Galon</p>
-            </div>
-            <div class="especia" data-id="img7">
-                <img src="semillas/badiacurry.jpeg" alt="Nombre de la Especia 7">
-                <p>Miel de agave</p>
-            </div>
-            <div class="especia" data-id="img8">
-                <img src="semillas/badiadulce.jpeg" alt="Nombre de la Especia 8">
-                <p>Miel de abeja Galon</p>
-            </div>
-            <div class="especia" data-id="img9">
-                <img src="semillas/badiajengi.jpeg" alt="Nombre de la Especia 9">
-                <p>Miel de abeja Galon</p>
-            </div>
-            <div class="especia" data-id="img10">
-                <img src="semillas/badiapaprika.jpeg" alt="Nombre de la Especia 10">
-                <p>Miel de abeja Galon</p>
-            </div>
-            <div class="especia" data-id="img11">
-                <img src="semillas/badiapepitoria.jpeg" alt="Nombre de la Especia 11">
-                <p>Miel de abeja Galon</p>
-            </div>
-            <div class="especia" data-id="img12">
-                <img src="semillas/badiapimienta.jpeg" alt="Nombre de la Especia 12">
-                <p>Miel de abeja Galon</p>
-            </div>
-            <div class="especia" data-id="img13">
-                <img src="semillas/badiasalgranu.jpeg" alt="Nombre de la Especia 13">
-                <p>Miel de abeja Galon</p>
-            </div>
-            <div class="especia" data-id="img14">
-                <img src="semillas/badiasazon.jpeg" alt="Nombre de la Especia 14">
-                <p>SAZON COMPLETA BADIA 1.7 LIBRAS</p>
-            </div>
-            <div class="especia" data-id="img15">
-                <img src="semillas/badiapollo.jpeg" alt="Nombre de la Especia 15">
-                <p>CONSOME DE POLLO LIBRA</p>
-            </div>
-            <div class="especia" data-id="img16">
-                <img src="semillas/badieares.jpeg" alt="Nombre de la Especia 16">
-                <p>CONSOME DE RES LIBRA</p>
-            </div>
-            <div class="especia" data-id="img17">
-                <img src="semillas/badiasaborin.jpeg" alt="Nombre de la Especia 17">
-                <p>SABORIN LIBRA</p>
-            </div>
-            <!-- Agrega más especias aquí -->
+        <p>CATEGORIA - GRANOS Y SEMILLAS</p>
+        <div class="especias-container" id="especiasContainer">
+            <!-- Especias se agregarán aquí dinámicamente -->
+            
         </div>
+        <div class="pagination" id="pagination"></div>
+        
     </div>
+    
+
+    <!-- Lightbox containers -->
+    <div id="img1" class="lightbox" onclick="closeLightbox('img1')">
+        <img src="semillas/s1.jpeg" alt="Nombre de la Especia 1">
+    </div>
+    <div id="img2" class="lightbox" onclick="closeLightbox('img2')">
+        <img src="semillas/s2.jpeg" alt="Nombre de la Especia 2">
+    </div>
+    <div id="img3" class="lightbox" onclick="closeLightbox('img3')">
+        <img src="semillas/s3.jpeg" alt="Nombre de la Especia 3">
+    </div>
+    <div id="img4" class="lightbox" onclick="closeLightbox('img4')">
+        <img src="semillas/s4.jpeg" alt="Nombre de la Especia 4">
+    </div>
+    <div id="img5" class="lightbox" onclick="closeLightbox('img5')">
+        <img src="semillas/s5.jpeg" alt="Nombre de la Especia 5">
+    </div>
+    <div id="img6" class="lightbox" onclick="closeLightbox('img6')">
+        <img src="semillas/s6.jpeg" alt="Nombre de la Especia 6">
+    </div>
+    <div id="img7" class="lightbox" onclick="closeLightbox('img7')">
+        <img src="semillas/s7.jpeg" alt="Nombre de la Especia 7">
+    </div>
+    <div id="img8" class="lightbox" onclick="closeLightbox('img8')">
+        <img src="semillas/s8.jpeg" alt="Nombre de la Especia 8">
+    </div>
+    <div id="img9" class="lightbox" onclick="closeLightbox('img9')">
+        <img src="semillas/s9.jpeg" alt="Nombre de la Especia 8">
+    </div>
+
+    <div class="no-result" id="noResult">No existe este producto</div>
     <footer>
         <p>&copy; 2024 Productos de Consumo Diario. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- Lightbox containers -->
-    <div id="img1" class="lightbox">
-        <img src="semillas/badiaajoenpolvo.jpeg" alt="Nombre de la Especia 1">
-    </div>
-    <div id="img2" class="lightbox">
-        <img src="semillas/badiabarbacoa.jpeg" alt="Nombre de la Especia 2">
-    </div>
-    <div id="img3" class="lightbox">
-        <img src="semillas/badiacanela.jpeg" alt="Nombre de la Especia 3">
-    </div>
-    <div id="img4" class="lightbox">
-        <img src="semillas/badiacomino.jpeg" alt="Nombre de la Especia 4">
-    </div>
-    <div id="img5" class="lightbox">
-        <img src="semillas/badiacominomolido.jpeg" alt="Nombre de la Especia 5">
-    </div>
-    <div id="img6" class="lightbox">
-        <img src="semillas/badiacurryyy.jpeg" alt="Nombre de la Especia 6">
-    </div>
-    <div id="img7" class="lightbox">
-        <img src="semillas/badiacurry.jpeg" alt="Nombre de la Especia 7">
-    </div>
-    <div id="img8" class="lightbox">
-        <img src="semillas/badiadulce.jpeg" alt="Nombre de la Especia 8">
-    </div>
-    <div id="img9" class="lightbox">
-        <img src="semillas/badiajengi.jpeg" alt="Nombre de la Especia 9">
-    </div>
-    <div id="img10" class="lightbox">
-        <img src="semillas/badiapaprika.jpeg" alt="Nombre de la Especia 10">
-    </div>
-    <div id="img11" class="lightbox">
-        <img src="semillas/badiapepitoria.jpeg" alt="Nombre de la Especia 11">
-    </div>
-    <div id="img12" class="lightbox">
-        <img src="semillas/badiapimienta.jpeg" alt="Nombre de la Especia 12">
-    </div>
-    <div id="img13" class="lightbox">
-        <img src="semillas/badiasalgranu.jpeg" alt="Nombre de la Especia 13">
-    </div>
-    <div id="img14" class="lightbox">
-        <img src="semillas/badiasazon.jpeg" alt="Nombre de la Especia 14">
-    </div>
-    <div id="img15" class="lightbox">
-        <img src="semillas/badiapollo.jpeg" alt="Nombre de la Especia 15">
-    </div>
-    <div id="img16" class="lightbox">
-        <img src="semillas/badieares.jpeg" alt="Nombre de la Especia 16">
-    </div>
-    <div id="img17" class="lightbox">
-        <img src="semillas/badiasaborin.jpeg" alt="Nombre de la Especia 17">
-    </div>
-
+    <!-- JavaScript -->
     <script>
-        // Manejar la búsqueda
-        function search() {
-            var input = document.getElementById("searchInput").value.toUpperCase();
-            var especias = document.getElementsByClassName("especia");
-            for (var i = 0; i < especias.length; i++) {
-                var texto = especias[i].getElementsByTagName("p")[0];
-                if (texto.innerHTML.toUpperCase().indexOf(input) > -1) {
-                    especias[i].style.display = "";
-                } else {
-                    especias[i].style.display = "none";
-                }
+        const especias = [
+            { id: "img1", src: "semillas/s1.jpeg", name: "NUEZ NOGAL LIBRA" },
+            { id: "img2", src: "semillas/s2.jpeg", name: "MANIA SIN SAL LIBRA" },
+            { id: "img3", src: "semillas/s3.jpeg", name: "ALMENDRA ENTERA LIBRA" },
+            { id: "img4", src: "semillas/s4.jpeg", name: "PAPITORIA ENTERA LIBRA" },
+            { id: "img5", src: "semillas/s5.jpeg", name: "ALMENDRA EN LASCAS CON CUTICULA LIBRA" },
+            { id: "img6", src: "semillas/s6.jpeg", name: "SEMILLA DE AMAPOLA LIBRA" },
+            { id: "img7", src: "semillas/s7.jpeg", name: "AJONJOLI NEGRO LIBRA" },
+            { id: "img8", src: "semillas/s8.jpeg", name: "QUINOA BLANCA LIBRA" },
+            { id: "img9", src: "semillas/s9.jpeg", name: "SEMILLA DE CHAN LIBRA" },
+            { id: "img2", src: "semillas/s2.jpeg", name: "MANIA CON SAL LIBRA" },
+      
+    
+            // Agrega más especias aquí
+        ];
+
+        const itemsPerPage = 8;
+        let currentPage = 1;
+
+        function displayEspecias(page) {
+            const container = document.getElementById("especiasContainer");
+            container.innerHTML = "";
+            const start = (page - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+            const paginatedEspecias = especias.slice(start, end);
+
+            paginatedEspecias.forEach(especia => {
+                const especiaDiv = document.createElement("div");
+                especiaDiv.className = "especia";
+                especiaDiv.dataset.id = especia.id;
+                especiaDiv.innerHTML = `
+                    <img src="${especia.src}" alt="${especia.name}">
+                    <p>${especia.name}</p>
+                `;
+                container.appendChild(especiaDiv);
+            });
+
+            document.querySelectorAll('.especia').forEach(item => {
+                item.addEventListener('click', event => {
+                    var id = item.getAttribute('data-id');
+                    document.getElementById(id).classList.add('show');
+                });
+            });
+        }
+
+        function setupPagination() {
+            const paginationContainer = document.getElementById("pagination");
+            paginationContainer.innerHTML = "";
+            const pageCount = Math.ceil(especias.length / itemsPerPage);
+
+            for (let i = 1; i <= pageCount; i++) {
+                const button = document.createElement("button");
+                button.innerText = i;
+                button.className = i === currentPage ? "active" : "";
+                button.addEventListener("click", () => {
+                    currentPage = i;
+                    displayEspecias(currentPage);
+                    document.querySelector(".pagination button.active").classList.remove("active");
+                    button.classList.add("active");
+                });
+                paginationContainer.appendChild(button);
             }
         }
 
-        // Manejar la apertura y cierre del lightbox
-        document.querySelectorAll('.especia').forEach(item => {
-            item.addEventListener('click', event => {
-                var id = item.getAttribute('data-id');
-                document.getElementById(id).classList.add('show');
-            });
-        });
+        function search() {
+            var input = document.getElementById("searchInput").value.toUpperCase();
+            var noResult = document.getElementById("noResult");
+            const filteredEspecias = especias.filter(especia => especia.name.toUpperCase().includes(input));
+            const container = document.getElementById("especiasContainer");
+            container.innerHTML = "";
 
-        document.querySelectorAll('.lightbox').forEach(item => {
-            item.addEventListener('click', event => {
-                item.classList.remove('show');
-            });
+            if (filteredEspecias.length > 0) {
+                noResult.style.display = "none";
+                filteredEspecias.forEach(especia => {
+                    const especiaDiv = document.createElement("div");
+                    especiaDiv.className = "especia";
+                    especiaDiv.dataset.id = especia.id;
+                    especiaDiv.innerHTML = `
+                        <img src="${especia.src}" alt="${especia.name}">
+                        <p>${especia.name}</p>
+                    `;
+                    container.appendChild(especiaDiv);
+                });
+
+                document.querySelectorAll('.especia').forEach(item => {
+                    item.addEventListener('click', event => {
+                        var id = item.getAttribute('data-id');
+                        document.getElementById(id).classList.add('show');
+                    });
+                });
+
+            } else {
+                noResult.style.display = "block";
+            }
+        }
+
+        function closeLightbox(id) {
+            document.getElementById(id).classList.remove('show');
+        }
+
+        // Manejar la búsqueda al presionar Enter
+        document.getElementById("searchInput").addEventListener("keyup", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault(); // Evitar el comportamiento por defecto del formulario
+                search();
+            }
         });
+        
+
+        // Inicialización
+        displayEspecias(currentPage);
+        setupPagination();
     </script>
-    
 </body>
 </html>
