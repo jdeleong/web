@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aderezos</title>
+    <title>Pastas</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -117,10 +117,10 @@
     </header>
     <div class="container">
         <div class="search-container">
-            <input type="text" id="searchInput" class="search-input" placeholder="Buscar aderezo...">
+            <input type="text" id="searchInput" class="search-input" placeholder="Buscar pasta...">
             <button onclick="search()" class="search-button">Buscar</button>
         </div>
-        <p>CATEGORIA - ADEREZOS</p>
+        <p>CATEGORIA - PASTAS</p>
         <div class="especias-container" id="especiasContainer">
             <!-- Especias se agregarán aquí dinámicamente -->
             
@@ -132,46 +132,46 @@
 
     <!-- Lightbox containers -->
     <div id="img1" class="lightbox" onclick="closeLightbox('img1')">
-        <img src="aderezos/ADEREZO1.jpeg" alt="Nombre de la Especia 1">
+        <img src="pasta/p1.jpeg" alt="Nombre de la Especia 1">
     </div>
     <div id="img2" class="lightbox" onclick="closeLightbox('img2')">
-        <img src="aderezos/ADEREZO2.jpeg" alt="Nombre de la Especia 2">
+        <img src="pasta/p2.jpeg" alt="Nombre de la Especia 2">
     </div>
     <div id="img3" class="lightbox" onclick="closeLightbox('img3')">
-        <img src="aderezos/ADEREZO3.jpeg" alt="Nombre de la Especia 3">
+        <img src="pasta/p3.jpeg" alt="Nombre de la Especia 3">
     </div>
     <div id="img4" class="lightbox" onclick="closeLightbox('img4')">
-        <img src="aderezos/ADEREZO4.jpeg" alt="Nombre de la Especia 4">
+        <img src="pasta/p4.jpeg" alt="Nombre de la Especia 4">
     </div>
     <div id="img5" class="lightbox" onclick="closeLightbox('img5')">
-        <img src="aderezos/ADEREZO5.jpeg" alt="Nombre de la Especia 5">
+        <img src="pasta/p5.jpeg" alt="Nombre de la Especia 5">
     </div>
     <div id="img6" class="lightbox" onclick="closeLightbox('img6')">
-        <img src="aderezos/ADEREZO6.jpeg" alt="Nombre de la Especia 6">
+        <img src="pasta/p6.jpeg" alt="Nombre de la Especia 6">
     </div>
     <div id="img7" class="lightbox" onclick="closeLightbox('img7')">
-        <img src="aderezos/ADEREZO7.jpeg" alt="Nombre de la Especia 7">
+        <img src="pasta/p7.jpeg" alt="Nombre de la Especia 7">
     </div>
     <div id="img8" class="lightbox" onclick="closeLightbox('img8')">
-        <img src="aderezos/ADEREZO8.jpeg" alt="Nombre de la Especia 8">
+        <img src="pasta/p8.jpeg" alt="Nombre de la Especia 8">
     </div>
     <div id="img9" class="lightbox" onclick="closeLightbox('img9')">
-        <img src="aderezos/ADEREZO9.jpeg" alt="Nombre de la Especia 8">
+        <img src="aderezos/.jpeg" alt="Nombre de la Especia 8">
     </div>
 
     <div id="img10" class="lightbox" onclick="closeLightbox('img10')">
-        <img src="aderezos/ADEREZO10.jpeg" alt="Nombre de la Especia 8">
+        <img src="aderezos/.jpeg" alt="Nombre de la Especia 8">
     </div>
 
     <div id="img11" class="lightbox" onclick="closeLightbox('img11')">
-        <img src="aderezos/ADEREZO11.jpeg" alt="Nombre de la Especia 8">
+        <img src="aderezos/.jpeg" alt="Nombre de la Especia 8">
     </div>
 
     <div id="img12" class="lightbox" onclick="closeLightbox('img12')">
-        <img src="aderezos/ADEREZO12.jpeg" alt="Nombre de la Especia 8">
+        <img src="aderezos/.jpeg" alt="Nombre de la Especia 8">
     </div>
     <div id="img13" class="lightbox" onclick="closeLightbox('img13')">
-        <img src="aderezos/ADEREZO13.jpeg" alt="Nombre de la Especia 8">
+        <img src="/ADEREZO13.jpeg" alt="Nombre de la Especia 8">
     </div>
     <div class="no-result" id="noResult">No existe este producto</div>
     <footer>
@@ -181,19 +181,19 @@
     <!-- JavaScript -->
     <script>
         const especias = [
-            { id: "img1", src: "aderezos/ADEREZO1.jpeg", name: "CHILE CHIPOTLE CLEMENTE" },
-            { id: "img2", src: "aderezos/ADEREZO2.JPEG", name: "GARBANZO 800 GRAMOS" },
-            { id: "img3", src: "aderezos/ADEREZO3.jpeg", name: "PASTA DE TOMATE SW GALON" },
-            { id: "img4", src: "aderezos/ADEREZO4.jpeg", name: "TOMATE TRITURADO SW GALON" },
-            { id: "img5", src: "aderezos/ADEREZO5.jpeg", name: "TOMATE ENTEROS PELADOS SW GALON" },
-            { id: "img6", src: "aderezos/ADEREZO6.jpeg", name: "ACEITUNA RODAJADA NEGRA ROLAND 6.34OZ" },
-            { id: "img7", src: "aderezos/ADEREZO7.jpeg", name: "CORAZON ALCACHOFA LATA" },
-            { id: "img8", src: "aderezos/ADEREZO8.jpeg", name: "ANCHOAS 12 ONZAS" },
-            { id: "img9", src: "aderezos/ADEREZO9.jpeg", name: "ANCHOAS 2 ONZAS" },
-            { id: "img10", src: "aderezos/ADEREZO10.jpeg", name: "CHAMPIONES DELICIAS GOURMET GALON" },
-            { id: "img11", src: "aderezos/ADEREZO11.jpeg", name: "HIGOS EN ALMIBAR 16.20 ONZAS" },
-            { id: "img12", src: "aderezos/ADEREZO12.jpeg", name: "ESCARGOT 800 GRAMOS" },
-            { id: "img13", src: "aderezos/ADEREZO13.jpeg", name: "FRIJOL DE OLLA DUCAL LATA" },
+            { id: "img1", src: "pasta/p1.jpeg", name: "CODITO ITALIANA " },
+            { id: "img2", src: "pasta/p2.JPEG", name: "FISILLE TRICOLOR ROMA" },
+            { id: "img3", src: "pasta/p3.jpeg", name: "LASAGNA ROMA" },
+            { id: "img4", src: "pasta/p4.jpeg", name: "PENNE RIGATE TRICOLOR ROMA" },
+            { id: "img5", src: "pasta/p5.jpeg", name: "SPAGUETTI ROMA" },
+            { id: "img6", src: "pasta/p6.jpeg", name: "SPAGUETTI INA" },
+            { id: "img7", src: "pasta/p7.jpeg", name: "SPAGUETTI ITALIANA" },
+            { id: "img8", src: "pasta/p8.jpeg", name: "PENNE RIGATE MEMBER´S SELECTION" },
+            { id: "img9", src: "aderezos/.jpeg", name: "ANCHOAS 2 ONZAS" },
+            { id: "img10", src: "aderezos/.jpeg", name: "CHAMPIONES DELICIAS GOURMET GALON" },
+            { id: "img11", src: "aderezos/.jpeg", name: "HIGOS EN ALMIBAR 16.20 ONZAS" },
+            { id: "img12", src: "aderezos/.jpeg", name: "ESCARGOT 800 GRAMOS" },
+            { id: "img13", src: "aderezos/.jpeg", name: "FRIJOL DE OLLA DUCAL LATA" },
     
             // Agrega más especias aquí
         ];
